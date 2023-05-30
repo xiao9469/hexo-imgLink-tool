@@ -1,13 +1,16 @@
 //author：肖佳嘉
 //Email：xiaojiajia.sz@foxmail.com
 
+
+const author = '肖佳嘉'
+const version = '0.0.1'
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
 // 源目录和目标目录的路径
-const sourceDir = 'E:/blog/blog/source/_posts';
-const targetDir = 'E:/blog/blog/source/cache2';
+const sourceDir = './source/_posts';
+const targetDir = './source/cache2';
 
 // 复制源目录到目标目录
 function copyDirectory(source, target) {
@@ -88,6 +91,7 @@ function deleteFolderContents(folderPath) {
 
 // 执行脚本
 function runScript() {
+  console.log('author:' + author + '  ' + 'version:'+version)
   console.log('程序开始执行...');
   try {
     // 复制 A 目录到 B 目录
