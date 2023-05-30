@@ -13,11 +13,13 @@
 ```
 
 ## 你要做的事情
-在代码里手动改配置好你的文章目录sourceDir 和 新建一个缓存目录 targetDir即可。<br>
-在这个脚本中，我把清理，生成，发布都写好了，你只需要专注markdown的编写，写好markdown后，运行这个脚本<br>
+1,在代码里手动改配置好你的文章目录sourceDir 和 新建一个缓存目录 targetDir即可。<br>
+2,把js代码复制到一个js文本中，存放在blog的根目录<br>
+3,写好markdown后，运行这个脚本<br>
 
 ```javascript
 node auto.js
 ```
 
-静候片刻即可完成。
+静候片刻即可完成,它会自动执行 备份 -> clean -> 图片链接转换 -> generate -> deplay ->还原本地markdown笔记图片链接 <br>
+如遇程序错误，会自动回滚<br>
