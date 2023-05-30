@@ -88,29 +88,36 @@ function deleteFolderContents(folderPath) {
 
 // 执行脚本
 function runScript() {
-	console.log('程序开始执行...');
-  // 复制 A 目录到 B 目录
-  copyDirectory(sourceDir, targetDir);
+  console.log('程序开始执行...');
+  try {
+    // 复制 A 目录到 B 目录
+    copyDirectory(sourceDir, targetDir);
 
-  // 替换指定目录 A 中的 md 文件内容
-  replaceContent(sourceDir);
-  
-  //清理
-  clean()
-  //生成
-  generate();
-  console.log('完成生成');
-  //发布
-  console.log('发布中');
-  deploy()
-  console.log('发布完成');
-  
-  // 复制 B 目录到 A 目录
-  console.log('正在完成最后的工作');
-  copyDirectory(targetDir, sourceDir);
-  //删除缓存
-  deleteFolderContents(targetDir);
-  console.log('程序结束');
+    // 替换指定目录 A 中的 md 文件内容
+    replaceContent(sourceDir);
+
+    //清理
+    clean();
+    //生成
+    generate();
+    console.log('完成生成');
+    //发布
+    console.log('发布中');
+    deploy();
+    console.log('发布完成');
+
+    // 复制 B 目录到 A 目录
+    console.log('正在完成最后的工作');
+    copyDirectory(targetDir, sourceDir);
+    //删除缓存
+    deleteFolderContents(targetDir);
+    console.log('程序结束');
+  } catch (error) {
+    console.error('程序执行出错:', error);
+    console.log('执行备份还原操作...');
+    copyDirectory(targetDir, sourceDir);
+    console.log('已完成备份还原操作');
+  }
 }
 
 runScript();
